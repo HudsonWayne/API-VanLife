@@ -8,5 +8,4 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   bookingHistoryIDs: [{ type: String, ref: "Booking" }],
 });
-
-export default mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);

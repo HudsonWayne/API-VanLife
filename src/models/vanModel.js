@@ -17,4 +17,4 @@ const vanSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("Van", vanSchema);
+module.exports = mongoose.model("Van", vanSchema);

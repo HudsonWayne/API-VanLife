@@ -15,4 +15,4 @@ const reviewSchema = new mongoose.Schema({
   review_source: String,
 });
 
-export default mongoose.model("Review", reviewSchema);
+module.exports = mongoose.model("Review", reviewSchema);
