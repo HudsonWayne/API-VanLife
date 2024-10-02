@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 
-
-const userSchema = new mongoose.Schema({
+const hostSchema = new mongoose.Schema({
   user_id: { type: String, required: true },
   user_name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  bookingHistoryIDs: [{ type: String, ref: "Booking" }],
+  vansIds: [{ type: String, ref: "Van" }],
 });
 
-export default mongoose.model("User", userSchema);
+module.exports = mongoose.model("Host", hostSchema);
