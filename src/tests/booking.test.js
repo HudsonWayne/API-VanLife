@@ -4,15 +4,27 @@ const {
   getBookingById,
   updateBooking,
   deleteBooking,
-} = require("../controllers/bookingController"); // Adjust the path as necessary
+} = require("../controllers/bookingController");
 const Booking = require("../models/bookingModel");
 const Van = require("../models/vanModel");
 const User = require("../models/userModel");
 
 // Mocking the models
-jest.mock("../models/bookingModel");
-jest.mock("../models/vanModel");
-jest.mock("../models/userModel");
+jest.mock("../models/bookingModel", () => ({
+  find: jest.fn(),
+  findById: jest.fn(),
+  findByIdAndUpdate: jest.fn(),
+  findByIdAndDelete: jest.fn(),
+  mockImplementation: jest.fn(),
+}));
+
+jest.mock("../models/vanModel", () => ({
+  findById: jest.fn(),
+}));
+
+jest.mock("../models/userModel", () => ({
+  findById: jest.fn(),
+}));
 
 describe("Booking Controller", () => {
   let req, res;
@@ -150,3 +162,4 @@ describe("Booking Controller", () => {
     });
   });
 });
+

@@ -7,6 +7,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.0"
   },
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "jest": "^29.7.0"
   }
