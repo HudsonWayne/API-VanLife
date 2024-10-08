@@ -2,7 +2,7 @@ const express = require("express");
 
 
 const getAllBookings =
-  require("../../src/controllers/bookingController").getAllBookings;
+  require("../controllers/bookingController").getAllBookings;
 const getBookingById =
   require("../../src/controllers/bookingController").getBookingById;
 const createBooking =
