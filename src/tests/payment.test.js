@@ -4,7 +4,7 @@ const {
   getPaymentById,
   updatePayment,
   deletePayment,
-} = require('../controllers/paymentController'); // Adjust the path as needed
+} = require('../controllers/paymentController'); 
 const Payment = require('../models/paymentModel');
 
 // Mock the Payment model
@@ -64,7 +64,7 @@ describe('Payment Controller', () => {
 
   describe('getAllPayments', () => {
     it('should return all payments', async () => {
-      Payment.find.mockResolvedValue([{}]); // Mock payments found
+      Payment.find.mockResolvedValue([{}]); 
 
       await getAllPayments(req, res);
 
@@ -118,7 +118,7 @@ describe('Payment Controller', () => {
     it('should update a payment successfully', async () => {
       req.params.id = 'paymentId123';
       req.body = { amount: 200 };
-      Payment.findByIdAndUpdate.mockResolvedValue({}); // Mock updated payment found
+      Payment.findByIdAndUpdate.mockResolvedValue({}); 
 
       await updatePayment(req, res);
 
