@@ -49,8 +49,8 @@ describe("Booking Controller", () => {
         endDate: "2024-10-05",
       };
 
-      User.findById.mockResolvedValue({}); // Mock user found
-      Van.findById.mockResolvedValue({}); // Mock van found
+      User.findById.mockResolvedValue({}); 
+      Van.findById.mockResolvedValue({}); 
       Booking.mockImplementation(() => ({
         save: jest.fn().mockResolvedValue({}),
       }));
@@ -66,7 +66,7 @@ describe("Booking Controller", () => {
 
     it("should return 404 if van is not found", async () => {
       req.body = { userId: "userId123", vanId: "vanId123" };
-      Van.findById.mockResolvedValue(null); // No van found
+      Van.findById.mockResolvedValue(null); 
 
       await createBooking(req, res);
 
@@ -76,8 +76,8 @@ describe("Booking Controller", () => {
 
     it("should return 404 if user is not found", async () => {
       req.body = { userId: "userId123", vanId: "vanId123" };
-      Van.findById.mockResolvedValue({}); // Mock van found
-      User.findById.mockResolvedValue(null); // No user found
+      Van.findById.mockResolvedValue({}); 
+      User.findById.mockResolvedValue(null); 
 
       await createBooking(req, res);
 
@@ -88,7 +88,7 @@ describe("Booking Controller", () => {
 
   describe("getAllBookings", () => {
     it("should return all bookings", async () => {
-      Booking.find.mockResolvedValue([{}]); // Mock bookings found
+      Booking.find.mockResolvedValue([{}]); 
       await getAllBookings(req, res);
 
       expect(res.status).toHaveBeenCalledWith(200);
@@ -99,7 +99,7 @@ describe("Booking Controller", () => {
   describe("getBookingById", () => {
     it("should return a booking by ID", async () => {
       req.params.id = "bookingId123";
-      Booking.findById.mockResolvedValue({}); // Mock booking found
+      Booking.findById.mockResolvedValue({}); 
       await getBookingById(req, res);
 
       expect(res.status).toHaveBeenCalledWith(200);
@@ -108,7 +108,7 @@ describe("Booking Controller", () => {
 
     it("should return 404 if booking not found", async () => {
       req.params.id = "bookingId123";
-      Booking.findById.mockResolvedValue(null); // No booking found
+      Booking.findById.mockResolvedValue(null); 
       await getBookingById(req, res);
 
       expect(res.status).toHaveBeenCalledWith(404);
