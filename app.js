@@ -1,7 +1,7 @@
 // src/app.js
-const express = require('express');
-const dotenv = require('dotenv');
-const { connectToDatabase } = require('./src/config/dbConfig'); // Ensure this is correct // Correctly importing db module
+import express from 'express';
+import dotenv from 'dotenv'; // Change to import
+import { connectToDatabase } from './src/config/dbConfig.js'; // Ensure this is correct and add .js extension
 
 const app = express();
 dotenv.config();
@@ -15,16 +15,17 @@ app.listen(process.env.PORT || 3001, () => {
 });
 
 // Define your API routes here
-import bookingRoutes from "./src/routes/bookingRoutes";
-import paymentRoutes from "./src/routes/paymentRoutes";
-import reviewRoutes from "./src/routes/reviewRoutes";
-import userRoutes from "./src/routes/userRoutes";
-import vanRoutes from "./src/routes/vanRoutes";
+import bookingRoutes from "./src/routes/bookingRoutes.js"; // Add .js extension
+import paymentRoutes from "./src/routes/paymentRoutes.js"; // Add .js extension
+import reviewRoutes from "./src/routes/reviewRoutes.js"; // Add .js extension
+import userRoutes from "./src/routes/userRoutes.js"; // Add .js extension
+import vanRoutes from "./src/routes/vanRoutes.js"; // Add .js extension
 
-app.use("./src/routes/userRoutes.js", userRoutes);
+// Use the routes
+app.use("/api/user", userRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/review", reviewRoutes);
 app.use("/api/van", vanRoutes);
 app.use("/api/booking", bookingRoutes);
 
-module.exports = app;
+export default app; // Change to export default
